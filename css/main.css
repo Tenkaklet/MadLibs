@@ -27,3 +27,6 @@ header {
   #game #story {
     margin: 20px 29%;
     width: 43%; }
+
+.active {
+  border: 2px solid green; }
