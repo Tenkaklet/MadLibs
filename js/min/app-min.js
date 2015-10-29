@@ -1,0 +1,1 @@
+angular.module("madApp",[]).controller("firstCtrl",function(l){});
