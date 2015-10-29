@@ -9,7 +9,7 @@ header {
   header .face {
     float: left;
     height: 186px;
-    outline: 1px solid #000;
+    border-right: 2px solid #000;
     display: inline-block; }
   header .logo-tagline {
     display: inline-block;
@@ -18,7 +18,12 @@ header {
 #game {
   width: 100%;
   margin: 0 auto; }
+  #game p {
+    margin-top: 20px; }
   #game #userInputs {
     margin: 2px; }
     #game #userInputs input {
       margin: 10px; }
+  #game #story {
+    margin: 20px 29%;
+    width: 43%; }
