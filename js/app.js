@@ -22,4 +22,13 @@ angular.module('madApp', []).controller('firstCtrl', function($scope) {
         placeholder: 'Add an adverb',
         value: ''
     };
+    // function to submit form after validation
+    $scope.submitForm = function (isValid) {
+        //to see if form is validation
+        if (isValid) {
+            alert('Valid Form');
+        } else {
+            alert('NOT Valid Form');
+        }
+    };
 });
