@@ -29,6 +29,7 @@
           <section id="game" class="container">
               <article class="col-md-6 col-md-offset-2" id="topInputs">
               <p class="lead text-center">Provide the following words:</p>
+
                   <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
                       <div class="input-group-lg" id="userInputs">
                           <input type="text" ng-class="name.value !== '' ? 'active' : 'not-active'" ng-model="name.value" placeholder="{{name.placeholder}}" required>
@@ -37,10 +38,11 @@
                           <input type="text" ng-class="verb.value !== '' ? 'active' : 'not-active'" ng-model="verb.value" placeholder="{{verb.placeholder}}" required>
                           <input type="text" ng-class="adverb.value !== '' ? 'active' : 'not-active'" ng-model="adverb.value" placeholder="{{adverb.placeholder}}" required>
                       </div>
-                      <button class="btn btn-sm btn-success pull-right" type="submit">Generate your MadLib</button>
+                      <button class="btn btn-sm btn-success pull-right" type="submit" ng-click="revealText()">Generate your MadLib</button>
                   </form>
+
               </article>
-              <article class="col-lg-12 text-center" id="story" ng-show="">
+              <article class="col-lg-12 text-center" id="story" ng-class="{'hidden':showStorytoggle}">
                   <p class="lead">{{name.value}} lived in a {{location.value}} until he was the age of 57 years old. He had lived in a {{adjective.value}} part of the town, but now {{name.value}} needed to {{verb.value}}. Life awaited {{name.value}} and {{adverb.value}} was of the essence. Life wasn't easy for {{name.value}}, but sometimes -  <strong>God bless the internet</strong>!</p>
               </article>
           </section>

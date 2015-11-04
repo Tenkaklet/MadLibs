@@ -1,5 +1,10 @@
 angular.module('madApp', []).controller('firstCtrl', function($scope) {
 
+    
+
+    $scope.revealText = function () {
+        showStorytoggle = true;
+    };
 
     $scope.name = {
         placeholder: 'Add a name',
@@ -24,6 +29,7 @@ angular.module('madApp', []).controller('firstCtrl', function($scope) {
     };
     // function to submit form after validation
     $scope.submitForm = function (isValid) {
+
         //to see if form is validation
         if (isValid) {
             alert('Valid Form');
