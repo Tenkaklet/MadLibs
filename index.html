@@ -38,11 +38,11 @@
                           <input type="text" ng-class="verb.value !== '' ? 'active' : 'not-active'" ng-model="verb.value" placeholder="{{verb.placeholder}}" required>
                           <input type="text" ng-class="adverb.value !== '' ? 'active' : 'not-active'" ng-model="adverb.value" placeholder="{{adverb.placeholder}}" required>
                       </div>
-                      <button class="btn btn-sm btn-success pull-right" type="submit" ng-click="revealText()">Generate your MadLib</button>
+                      <button class="btn btn-sm btn-success pull-right" type="submit" ng-click="showText = showText">Generate your MadLib</button>
                   </form>
 
               </article>
-              <article class="col-lg-12 text-center" id="story" ng-class="{'hidden':showStorytoggle}">
+              <article class="col-lg-12 text-center" id="story" ng-show="showText">
                   <p class="lead">{{name.value}} lived in a {{location.value}} until he was the age of 57 years old. He had lived in a {{adjective.value}} part of the town, but now {{name.value}} needed to {{verb.value}}. Life awaited {{name.value}} and {{adverb.value}} was of the essence. Life wasn't easy for {{name.value}}, but sometimes -  <strong>God bless the internet</strong>!</p>
               </article>
           </section>
