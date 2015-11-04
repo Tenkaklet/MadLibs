@@ -1,4 +1,4 @@
-angular.module('madApp', []).controller('firstCtrl', function($scope) {
+angular.module('madApp', ['ngMessages']).controller('firstCtrl', function($scope) {
 
 
     $scope.name = {
@@ -29,7 +29,7 @@ angular.module('madApp', []).controller('firstCtrl', function($scope) {
         if (isValid) {
             $scope.showText = true;
         } else {
-            alert('NOT Valid Form');
+
         }
     };
 });

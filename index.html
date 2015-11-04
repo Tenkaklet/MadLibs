@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
     <script src="js/app.js"></script>
 
     <!--[if lt IE 9]>
@@ -39,6 +40,11 @@
                           <input type="text" ng-class="adverb.value !== '' ? 'active' : 'not-active'" ng-model="adverb.value" placeholder="{{adverb.placeholder}}" required>
                       </div>
                       <button class="btn btn-sm btn-success pull-right" type="submit" ng-click="showText = showText">Generate your MadLib</button>
+                      <div class="help-block" ng-messages="userForm.name.$error">
+                          <p>
+                              Almost there.
+                          </p>
+                      </div>
                   </form>
 
               </article>
