@@ -40,7 +40,7 @@
                           <input type="text" ng-class="adverb.value !== '' ? 'active' : 'not-active'" ng-model="adverb.value" placeholder="{{adverb.placeholder}}" required>
                       </div>
                       <button class="btn btn-sm btn-success pull-right" type="submit" ng-click="showText = showText">Generate your MadLib</button>
-                      <div class="help-block" ng-messages="userForm.name.$error">
+                      <div class="help-block" ng-show="!userForm.name.$error">
                           <p>
                               Almost there.
                           </p>
