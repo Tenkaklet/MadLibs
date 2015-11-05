@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
     <script src="js/app.js"></script>
 
     <!--[if lt IE 9]>
@@ -26,19 +28,46 @@
                   <h1 class="text-center">Automate This!</h1>
               </div>
           </header>
-          <section id="game" class="container">
+          <section id="game" class="container" ng-cloak>
+              <article class="col-md-6 col-md-offset-2" id="topInputs" ng-hide="showText = showText">
               <p class="lead text-center">Provide the following words:</p>
-              <article class="col-md-6 col-md-offset-4">
-                  <div class="input-group-lg" id="userInputs">
-                      <input type="text" ng-class="name.value !== '' ? 'active' : 'not-active'" ng-model="name.value" placeholder="{{name.placeholder}}">
-                      <input type="text" ng-class="location.value !== '' ? 'active': 'not-active'" ng-model="location.value" placeholder="{{location.placeholder}}">
-                      <input type="text" ng-class="adjective.value !== '' ? 'active' : 'not-active'" ng-model="adjective.value" placeholder="{{adjective.placeholder}}">
-                      <input type="text" ng-class="verb.value !== '' ? 'active' : 'not-active'" ng-model="verb.value" placeholder="{{verb.placeholder}}">
-                      <input type="text" ng-class="adverb.value !== '' ? 'active' : 'not-active'" ng-model="adverb.value" placeholder="{{adverb.placeholder}}">
-                  </div>
+
+                  <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+                      <div class="input-group-lg" id="userInputs">
+                          <input type="text" ng-class="name.value !== '' ? 'active' : 'not-active'" name="name" ng-model="name.value" placeholder="{{name.placeholder}}" required>
+                          <input type="text" ng-class="location.value !== '' ? 'active': 'not-active'" name="location" ng-model="location.value" placeholder="{{location.placeholder}}" required>
+                          <input type="text" ng-class="adjective.value !== '' ? 'active' : 'not-active'" name="adjective" ng-model="adjective.value" placeholder="{{adjective.placeholder}}" required>
+                          <input type="text" ng-class="verb.value !== '' ? 'active' : 'not-active'" name="verb" ng-model="verb.value" placeholder="{{verb.placeholder}}" required>
+                          <input type="text" ng-class="adverb.value !== '' ? 'active' : 'not-active'" name="adverb" ng-model="adverb.value" placeholder="{{adverb.placeholder}}" required>
+                          <input type="number" name="number" ng-class="number.value !== '' ? 'active' : 'not-active' " ng-model="number.value" placeholder="{{number.placeholder}}" required>
+                      </div>
+                      <button class="btn btn-sm btn-success pull-right" type="submit" ng-click="showText = showText">Generate your MadLib</button>
+
+                      <div class="help-block" ng-show="userForm.name.$error.required">
+                          <p> Please put in a name</p>
+                      </div>
+                      <div class="help-block" ng-show="userForm.location.$error.required">
+                          <p> Please put in a location</p>
+                      </div>
+                      <div class="help-block" ng-show="userForm.adjective.$error.required">
+                          <p> Please put in an adjective</p>
+                      </div>
+                      <div class="help-block" ng-show="userForm.verb.$error.required">
+                          <p> Please put in a verb</p>
+                      </div>
+                      <div class="help-block" ng-show="userForm.adverb.$error.required">
+                          <p> Please put in an adverb</p>
+                      </div>
+                      <div class="help-block" ng-show="userForm.number.$error.required">
+                          <p> Please put in a number</p>
+                      </div>
+                  </form>
+
+
               </article>
-              <article class="col-lg-12 text-center" id="story">
-                  <p class="lead">{{name.value}} lived in a {{location.value}} until he was the age of 57 years old. He had lived in a {{adjective.value}} part of the town, but now {{name.value}} needed to {{verb.value}}. Life awaited {{name.value}} and {{adverb.value}} was of the essence. Life wasn't easy for {{name.value}}, but sometimes -  <strong>God bless the internet</strong>!</p>
+              <article class="col-lg-12 text-center" id="story" ng-show="showText">
+                  <p class="lead">{{name.value}} lived in a {{location.value}} until he was the age of 57 years old. He had lived in a {{adjective.value}} part of the town, but now {{name.value}} needed to {{verb.value}}. Life awaited {{name.value}} and {{adverb.value}} was of the essence. Life wasn't easy for {{name.value}}, but sometimes -  <strong>God bless the internet</strong>! {{name.value}} lived to be {{number.value}} years old!</p>
+                  <button type="button" class="btn btn-sm btn-success pull-right" name="reset" ng-click="reset()">Reset</button>
               </article>
           </section>
       </div>
