@@ -23,6 +23,10 @@ $scope.master = {};
         placeholder: 'Add an adverb',
         value: ''
     };
+    $scope.number = {
+        placeholder: 'Input a number',
+        value: ''    
+    };
     // function to submit form after validation
     $scope.submitForm = function (isValid) {
 
