@@ -1,4 +1,4 @@
-angular.module('madApp', ['ngMessages']).controller('firstCtrl', function($scope) {
+angular.module('madApp', ['ngMessages', 'ngAnimate']).controller('firstCtrl', function($scope) {
 
 $scope.master = {};
 
@@ -25,7 +25,7 @@ $scope.master = {};
     };
     $scope.number = {
         placeholder: 'Input a number',
-        value: ''    
+        value: ''
     };
     // function to submit form after validation
     $scope.submitForm = function (isValid) {
